@@ -1,0 +1,15 @@
+{
+    "environments": {
+        "default": {
+            "profile": "DEFAULT",
+            "storage_type": "mlflow",
+            "properties": {
+                "workspace_directory": "/Users/kimberly.mahoney@databricks.com/dbx/projects/dbx-python-wheel-demo",
+                "artifact_location": "dbfs:/Users/kimberly.mahoney@databricks.com/dbx"
+            }
+        }
+    },
+    "inplace_jinja_support": false,
+    "failsafe_cluster_reuse_with_assets": false,
+    "context_based_upload_for_execute": true
+}
