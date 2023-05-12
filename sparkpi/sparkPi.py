@@ -22,6 +22,7 @@ def calc_pi(n):
 def entry(args=None):
     if not args:
         return  
+    
     n = int(args[0])
     calc_pi(n)
 
