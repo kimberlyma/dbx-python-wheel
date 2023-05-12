@@ -8,6 +8,7 @@ getcontext().prec=1000
 def calc_pi(n):
     t= Decimal(0)
     pi = Decimal(0)
+    
     deno= Decimal(0)
 
     for k in range(n):
