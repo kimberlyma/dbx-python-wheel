@@ -35,3 +35,5 @@ htmlcov/*
 .dbx/lock.json
 
 .metals/
+
+actions-runner/

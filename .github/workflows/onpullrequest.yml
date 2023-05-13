@@ -55,7 +55,14 @@ jobs:
       #----------------------------------------------
       #              run test suite
       #----------------------------------------------
-      - name: Run tests
+      - name: Run unit tests
         run: |
           source .venv/bin/activate
           pytest tests/
+
+      - name: Deploy integration test
+        run: |
+            dbx deploy --workflows=dbx-wheel-example
+      - name: Run integration test
+        run: | 
+              dbx launch --trace dbx-wheel-example
