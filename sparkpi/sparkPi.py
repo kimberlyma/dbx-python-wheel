@@ -16,6 +16,7 @@ def calc_pi(n):
         pi += Decimal(t)/Decimal(deno)
     pi = pi * Decimal(12) / Decimal(640320 ** Decimal(1.5))
     pi = 1/pi
+    
     print(round(pi,n))
     return(round(pi,n))
 
