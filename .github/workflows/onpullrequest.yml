@@ -9,6 +9,7 @@ on:
 
 jobs:
   test-pipeline:
+
     runs-on: ubuntu-latest
 
     steps:
@@ -61,6 +62,9 @@ jobs:
           pytest tests/
 
       - name: Deploy integration test
+        env: 
+          DATABRICKS_HOST: ${{secrets.DATABRICKS_HOST}}
+          DATABRICKS_TOKEN: ${{secrets.DATABRICKS_TOKEN}}
         run: |
             source .venv/bin/activate
             dbx deploy --workflows=dbx-wheel-example
