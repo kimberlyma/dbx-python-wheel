@@ -7,6 +7,14 @@
                 "workspace_directory": "/Users/kimberly.mahoney@databricks.com/dbx/projects/dbx-python-wheel-demo",
                 "artifact_location": "dbfs:/Users/kimberly.mahoney@databricks.com/dbx"
             }
+        },
+        "prod": {
+            "profile": "e2-demo",
+            "storage_type": "mlflow",
+            "properties": {
+                "workspace_directory": "/Users/kimberly.mahoney@databricks.com/dbx/projects/dbx-python-wheel-demo",
+                "artifact_location": "dbfs:/Users/kimberly.mahoney@databricks.com/dbx"
+            }
         }
     },
     "inplace_jinja_support": false,
