@@ -62,4 +62,4 @@ jobs:
             source .venv/bin/activate
             poetry build
             ls
-            dbx deploy -e prod --workflows=dbx-wheel-example
+            dbx deploy -e prod --workflows=prod-dbx-wheel-example
