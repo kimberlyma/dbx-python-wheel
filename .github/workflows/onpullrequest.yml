@@ -72,4 +72,5 @@ jobs:
             dbx deploy --workflows=dbx-wheel-example
       - name: Run integration test
         run: | 
+              source .venv/bin/activate
               dbx launch --trace dbx-wheel-example
