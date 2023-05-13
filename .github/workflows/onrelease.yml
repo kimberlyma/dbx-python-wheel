@@ -9,10 +9,6 @@ jobs:
   release-pipeline:
     runs-on: ubuntu-latest
     
-    env:
-      DATABRICKS_HOST: ${{ secrets.DATABRICKS_PROD_HOST }}
-      DATABRICKS_TOKEN:  ${{ secrets.DATABRICKS_PROD_TOKEN }}
-
     steps:
       #----------------------------------------------
       #       check-out repo and set-up python
@@ -58,6 +54,9 @@ jobs:
       #              deploy artifact
       #----------------------------------------------
       - name: Deploy integration test
+        env: 
+          DATABRICKS_HOST: ${{secrets.DATABRICKS_HOST}}
+          DATABRICKS_TOKEN: ${{secrets.DATABRICKS_TOKEN}}
         run: |
             source .venv/bin/activate
             poetry build
