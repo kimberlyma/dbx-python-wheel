@@ -71,6 +71,9 @@ jobs:
             ls
             dbx deploy --workflows=dbx-wheel-example
       - name: Run integration test
+        env: 
+          DATABRICKS_HOST: ${{secrets.DATABRICKS_HOST}}
+          DATABRICKS_TOKEN: ${{secrets.DATABRICKS_TOKEN}}
         run: | 
               source .venv/bin/activate
               dbx launch --trace dbx-wheel-example
