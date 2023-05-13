@@ -62,7 +62,6 @@ jobs:
           pytest tests/
 
       - name: Deploy integration test
-        working-directory: ${{ github.workspace }}/sparkpi
         env: 
           DATABRICKS_HOST: ${{secrets.DATABRICKS_HOST}}
           DATABRICKS_TOKEN: ${{secrets.DATABRICKS_TOKEN}}
