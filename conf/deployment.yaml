@@ -3,7 +3,7 @@ build:
 
 custom:
   basic-cluster-props: &basic-cluster-props
-    spark_version: "12.2.x-scala2.12"
+    spark_version: "13.0.x-scala2.12"
     node_type_id: "i3.xlarge"
     policy_id: "E05E27B13F0003A0"
     autoscale:
@@ -16,10 +16,13 @@ custom:
       num_workers: 2
 
   dev-cluster-spec: &dev-cluster-spec
-    spark_version: "12.2.x-cpu-ml-scala2.12"
-    num_workers: 1
-    node_type_id: "m5d.large"
-  
+    spark_version: "13.0.x-scala2.12"
+    node_type_id: "i3.xlarge"
+    policy_id: "E05E27B13F0003A0"
+    autoscale:
+      min_workers: 1
+      max_workers: 2
+
   dev-cluster-config: &dev-cluster-config
     new_cluster:
       << *dev-cluster-spec
@@ -30,6 +33,27 @@ environments:
     - name: "dbx-wheel-example"
       tags: 
         env: "development"
+        team: "data-eng"
+
+      job_clusters:
+      - job_cluster_key: "basic-cluster"
+        <<: *basic-static-cluster
+
+      tasks:
+      - task_key: "your-task-01"
+        job_cluster_key: "basic-cluster"
+        max_retries: 0
+        python_wheel_task:
+          package_name: "sparkpi"
+          entry_point: "run"
+        libraries:
+        - whl: "file://dist/sparkpi-0.1.0-py3-none-any.whl"
+        instance-profile: instance-profile://shard-demo-s3-access
+  prod:
+    workflows:
+    - name: "prod-dbx-wheel-example"
+      tags: 
+        env: "production"
         team: "data-eng"
 
       job_clusters:
