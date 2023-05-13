@@ -3,8 +3,12 @@ build:
 
 custom:
   basic-cluster-props: &basic-cluster-props
-    spark_version: "12.2.x-cpu-ml-scala2.12"
-    node_type_id: "m5d.large"
+    spark_version: "12.2.x-scala2.12"
+    node_type_id: "i3.xlarge"
+    policy_id: "E05E27B13F0003A0"
+    autoscale:
+      min_workers: 1
+      max_workers: 2
 
   basic-static-cluster: &basic-static-cluster
     new_cluster:
@@ -41,7 +45,7 @@ environments:
           entry_point: "run"
         libraries:
         - whl: "file://dist/sparkpi-0.1.0-py3-none-any.whl"
-        instance-profile: instance-profile://one-env-databricks-access
+        instance-profile: instance-profile://shard-demo-s3-access
 
 
           
