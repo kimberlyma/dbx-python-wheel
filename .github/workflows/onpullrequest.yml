@@ -62,11 +62,13 @@ jobs:
           pytest tests/
 
       - name: Deploy integration test
+        working-directory: ${{ github.workspace }}
         env: 
           DATABRICKS_HOST: ${{secrets.DATABRICKS_HOST}}
           DATABRICKS_TOKEN: ${{secrets.DATABRICKS_TOKEN}}
         run: |
             source .venv/bin/activate
+            ls
             dbx deploy --workflows=dbx-wheel-example
       - name: Run integration test
         run: | 
