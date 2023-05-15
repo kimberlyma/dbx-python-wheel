@@ -18,6 +18,9 @@ def calc_pi(n):
     pi = 1/pi
     
     print(round(pi,n))
+
+
+
     return(round(pi,n))
 
 def entry(args=None):
@@ -25,6 +28,7 @@ def entry(args=None):
         return  
     
     n = int(args[0])
+    
     calc_pi(n)
 
 if __name__ == "__main__":
