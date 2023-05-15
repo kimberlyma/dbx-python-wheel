@@ -54,7 +54,7 @@ jobs:
       #----------------------------------------------
       #              deploy artifact
       #----------------------------------------------
-      - name: Deploy integration test
+      - name: Release Workflow
         env:
           DATABRICKS_HOST: ${{ secrets.DATABRICKS_PROD_HOST }}
           DATABRICKS_TOKEN:  ${{ secrets.DATABRICKS_PROD_TOKEN }}
