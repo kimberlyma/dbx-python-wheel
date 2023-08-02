@@ -19,8 +19,6 @@ def calc_pi(n):
     
     print(round(pi,n))
 
-
-
     return(round(pi,n))
 
 def entry(args=None):

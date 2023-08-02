@@ -33,7 +33,7 @@ htmlcov/*
 
 # Databricks eXtensions
 .dbx/lock.json
-
+.dbx/sync/*
 .metals/
 
 actions-runner/
